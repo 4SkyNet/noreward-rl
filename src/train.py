@@ -4,8 +4,8 @@ import sys
 from six.moves import shlex_quote
 
 parser = argparse.ArgumentParser(description="Run commands")
-parser.add_argument('-w', '--num-workers', default=20, type=int,
-                    help="Number of workers")
+parser.add_argument('-w', '--num-workers', default=4, type=int,
+                    help="Number of workers")   # 20
 parser.add_argument('-r', '--remotes', default=None,
                     help='The address of pre-existing VNC servers and '
                          'rewarders to use (e.g. -r vnc://localhost:5900+15900,vnc://localhost:5901+15901).')
@@ -133,7 +133,7 @@ def run():
     args = parser.parse_args()
     if args.default:
         args.envWrap = True
-        args.savio = True
+        args.savio = False
         args.noLifeReward = True
         args.unsup = 'action'
 
